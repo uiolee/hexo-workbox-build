@@ -1,6 +1,6 @@
 # hexo-workbox-build
 
-[![node-current](https://img.shields.io/node/v/https%3A%2F%2Fwww.npmjs.com%2Fpackage%2Fhexo-workbox-build?style=for-the-badge)](https://www.npmjs.com/package/hexo-workbox-build)
+[![node-current](https://img.shields.io/npm/v/hexo-workbox-build?style=for-the-badge)](https://www.npmjs.com/package/hexo-workbox-build)
 
 A hexo plugin to run workbox build.
 
