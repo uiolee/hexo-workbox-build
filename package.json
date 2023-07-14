@@ -1,6 +1,6 @@
 {
   "name": "hexo-workbox-build",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A hexo plugin to run workbox build. Add PWA support for your site.",
   "main": "index.js",
   "scripts": {
