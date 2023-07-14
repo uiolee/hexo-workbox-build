@@ -1,0 +1,30 @@
+{
+  "name": "hexo-workbox-build",
+  "version": "1.0.0",
+  "description": "A hexo plugin to run workbox build",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/uiolee/hexo-workbox-build.git"
+  },
+  "keywords": [
+    "hexo"
+  ],
+  "author": "Uiolee",
+  "license": "MPL-2.0",
+  "bugs": {
+    "url": "https://github.com/uiolee/hexo-workbox-build/issues"
+  },
+  "homepage": "https://github.com/uiolee/hexo-workbox-build#readme",
+  "devDependencies": {
+    "eslint": "^8.44.0",
+    "eslint-config-hexo": "^5.0.0"
+  },
+  "dependencies": {
+    "nunjucks": "^3.2.4",
+    "workbox-build": "^7.0.0"
+  }
+}

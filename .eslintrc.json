@@ -1,0 +1,19 @@
+{
+  "root": true,
+
+  "env": {
+    "es2021": true,
+    "node": true
+  },
+  "extends": "hexo",
+  "overrides": [
+    {
+      "files": ["test/**"],
+      "extends": "hexo/test"
+    }
+  ],
+  "parserOptions": {
+    "ecmaVersion": "latest"
+  },
+  "rules": {}
+}
