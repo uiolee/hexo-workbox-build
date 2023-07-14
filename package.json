@@ -32,5 +32,9 @@
   "dependencies": {
     "nunjucks": "^3.2.4",
     "workbox-build": "^7.0.0"
-  }
+  },
+  "files": [
+    "lib",
+    "index.js"
+  ]
 }
