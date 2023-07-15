@@ -26,7 +26,7 @@ hexo.config.workboxBuild = Object.assign({
 
 const opts = hexo.config.workboxBuild;
 
-if (!opts.enable || (!hexo.env.cmd.startsWith('g') && !hexo.env.cmd.startsWith('d'))) {
+if (!opts.enable || (!hexo.env.cmd.startsWith('g') && !hexo.env.cmd.startsWith('d') && !hexo.env.cmd.startsWith('s'))) {
   hexo.log.info('hexo-workbox-build will not run.');
 } else {
 
