@@ -12,11 +12,6 @@ test:
 github:
   - '.github/*'
 
-action:
+github_actions:
   - '.github/workflows/**'
 
-dependencies:
-  - 'package*.json'
-
-dot:
-  - '.*'
