@@ -1,17 +1,15 @@
-
 code:
-  - '**.js'
-  - 'lib/**'
+  - "**.js"
+  - "lib/**"
 
 doc:
-  - '**.md'
+  - "**.md"
 
 test:
-  - 'test/**'
+  - "test/**"
 
 github:
-  - '.github/*'
+  - ".github/*"
 
 github_actions:
-  - '.github/workflows/**'
-
+  - ".github/workflows/**"

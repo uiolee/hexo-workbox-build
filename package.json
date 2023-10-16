@@ -2,16 +2,6 @@
   "name": "hexo-workbox-build",
   "version": "1.0.2",
   "description": "A hexo plugin to run workbox build. Add PWA support for your site.",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+ssh://git@github.com/uiolee/hexo-workbox-build.git"
-  },
   "keywords": [
     "hexo",
     "plugin",
@@ -19,22 +9,34 @@
     "PWA",
     "offline"
   ],
-  "author": "Uiolee",
-  "license": "MPL-2.0",
+  "homepage": "https://github.com/uiolee/hexo-workbox-build#readme",
   "bugs": {
     "url": "https://github.com/uiolee/hexo-workbox-build/issues"
   },
-  "homepage": "https://github.com/uiolee/hexo-workbox-build#readme",
-  "devDependencies": {
-    "eslint": "^8.44.0",
-    "eslint-config-hexo": "^5.0.0"
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/uiolee/hexo-workbox-build.git"
+  },
+  "license": "MPL-2.0",
+  "author": "Uiolee",
+  "main": "index.js",
+  "files": [
+    "lib",
+    "index.js"
+  ],
+  "scripts": {
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "test": "echo \"Warning: test is empty!\" && exit 0",
+    "test:lcov": "echo \"Warning: test is empty!\" && exit 0"
   },
   "dependencies": {
     "nunjucks": "^3.2.4",
     "workbox-build": "^7.0.0"
   },
-  "files": [
-    "lib",
-    "index.js"
-  ]
+  "devDependencies": {
+    "eslint": "^8.51.0",
+    "eslint-config-hexo": "^5.0.0"
+  },
+  "packageManager": "pnpm@8"
 }
