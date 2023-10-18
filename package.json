@@ -9,7 +9,7 @@
     "PWA",
     "offline"
   ],
-  "homepage": "https://github.com/uiolee/hexo-workbox-build#readme",
+  "homepage": "https://github.com/uiolee/hexo-workbox-build",
   "bugs": {
     "url": "https://github.com/uiolee/hexo-workbox-build/issues"
   },
@@ -18,7 +18,7 @@
     "url": "git+ssh://git@github.com/uiolee/hexo-workbox-build.git"
   },
   "license": "MPL-2.0",
-  "author": "Uiolee",
+  "author": "Uiolee (https://github.com/uiolee)",
   "main": "index.js",
   "files": [
     "lib",
@@ -27,16 +27,27 @@
   "scripts": {
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
+    "sort": "pnpm sort-package-json",
     "test": "echo \"Warning: test is empty!\" && exit 0",
     "test:lcov": "echo \"Warning: test is empty!\" && exit 0"
   },
   "dependencies": {
-    "nunjucks": "^3.2.4",
     "workbox-build": "^7.0.0"
   },
   "devDependencies": {
     "eslint": "^8.51.0",
-    "eslint-config-hexo": "^5.0.0"
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-jest": "^27.4.2",
+    "eslint-plugin-prettier": "^5.0.1",
+    "jest": "^29.7.0"
+  },
+  "peerDependencies": {
+    "nunjucks": "^3.2.4"
+  },
+  "peerDependenciesMeta": {
+    "cheerio": {
+      "nunjucks": false
+    }
   },
   "packageManager": "pnpm@8"
 }
