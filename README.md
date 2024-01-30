@@ -16,6 +16,7 @@ workboxBuild:
   injectManifestOptionPath: ""
 
   injectScript: true
+  # scriptPath: "registerSW.js"
   scriptNjkPath: ""
 
   ManifestJsonSrc: ""
@@ -36,6 +37,7 @@ workboxBuild:
   # injectManifestOptionPath: "workbox/injMfOption.js"
 
   injectScript: true
+  # scriptPath: "registerSW.js"
   # scriptNjkPath: ""
 
   ManifestJsonSrc: "workbox/manifest.json"

@@ -3,7 +3,7 @@
 "use strict";
 
 const { injectManifestJson, injectScript } = require("./lib/inject");
-const { manifestJsonGen } = require("./lib/generator");
+const { manifestJsonGen, registerSwGen } = require("./lib/generator");
 const { buildWorkboxFn } = require("./lib/buildWorkbox");
 
 hexo.config.workboxBuild = Object.assign(
@@ -16,6 +16,7 @@ hexo.config.workboxBuild = Object.assign(
     injectManifestOptionPath: "",
 
     injectScript: true,
+    scriptPath: "registerSW.js",
     scriptNjkPath: "",
 
     ManifestJsonSrc: "",
@@ -41,6 +42,7 @@ if (
   }
 
   if (opts.injectScript) {
+    hexo.extend.generator.register("registerSW", registerSwGen);
     hexo.extend.injector.register(
       "body_end",
       injectScript(opts, hexo),
