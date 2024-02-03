@@ -7,26 +7,20 @@ on:
   workflow_dispatch:
     inputs:
       version:
-        description: "the package version you want to bump"
+        description: ""
         required: true
         default: "keep current"
         type: choice
         options:
           - keep current
-          - major
-          - minor
-          - patch
-          - premajor
-          - preminor
-          - prepatch
-          - prerelease
-          - from-git
+
   push:
     tags:
       - "v*.*.*"
 
 jobs:
   test:
+    name: Test
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -60,16 +54,18 @@ jobs:
 
   publish-npm:
     needs: test
+    runs-on: ubuntu-latest
     permissions:
       id-token: write
-    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
       - uses: actions/setup-node@v4
         with:
-          node-version: "lts/*"
+          # node-version: "lts/*"
           registry-url: https://registry.npmjs.org/
-      - run: npm publish --provenance
+
+      - run: npm publish --provenance --access public --registry=https://registry.npmjs.org/
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
 
@@ -84,18 +80,20 @@ jobs:
       id-token: write
     steps:
       - uses: actions/checkout@v4
+
       - uses: actions/setup-node@v4
         with:
-          node-version: "lts/*"
+          # node-version: "lts/*"
           registry-url: "https://npm.pkg.github.com/"
           # Defaults to the user or organization that owns the workflow file
           scope: ${{env.SCOPE}}
           token: ${{secrets.GITHUB_TOKEN}}
           always-auth: true
 
-      - run: |
-          node .github/workflows/package.js
+      - name: rename package name
+        run: |
+          node scripts/renamePackage.mjs
 
-      - run: npm publish --registry=https://npm.pkg.github.com
+      - run: npm publish --access public --registry=https://npm.pkg.github.com
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
