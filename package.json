@@ -32,6 +32,7 @@
     "test:lcov": "echo \"Warning: test is empty!\" && exit 0"
   },
   "dependencies": {
+    "nunjucks": "^3.2.4",
     "workbox-build": "^7.0.0"
   },
   "devDependencies": {
@@ -42,12 +43,16 @@
     "jest": "^29.7.0"
   },
   "peerDependencies": {
-    "nunjucks": "^3.2.4"
+    "nunjucks": "^3.2.4",
+    "workbox-build": "^7.0.0"
   },
   "peerDependenciesMeta": {
-    "cheerio": {
-      "nunjucks": false
+    "nunjucks": {
+      "optional": false
+    },
+    "workbox-build": {
+      "optional": false
     }
   },
-  "packageManager": "pnpm@8"
+  "packageManager": "pnpm@8.15.1+sha256.245fe901f8e7fa8782d7f17d32b6a83995e2ae03984cb5b62b8949bfdc27c7b5"
 }
