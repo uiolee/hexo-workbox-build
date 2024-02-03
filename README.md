@@ -1,8 +1,29 @@
 # hexo-workbox-build
 
-[![node-current](https://img.shields.io/npm/v/hexo-workbox-build?style=for-the-badge)](https://www.npmjs.com/package/hexo-workbox-build)
+[![GitHub Tag](https://img.shields.io/github/v/tag/uiolee/hexo-workbox-build?logo=github)](https://github.com/uiolee/hexo-workbox-build/tags)
+[![GitHub Release](https://img.shields.io/github/v/release/uiolee/hexo-workbox-build?logo=github)](https://github.com/uiolee/hexo-workbox-build/releases)
+[![GitHub commits since latest release](https://img.shields.io/github/commits-since/uiolee/hexo-workbox-build/latest?include_prereleases&sort=semver&logo=github)](https://github.com/uiolee/hexo-workbox-build/compare/...main)
+[![GitHub top language](https://img.shields.io/github/languages/top/uiolee/hexo-workbox-build?logo=github)](#hexo-workbox-build)
+[![Coverage Status](https://coveralls.io/repos/github/uiolee/hexo-workbox-build/badge.svg?branch=main)](https://coveralls.io/github/uiolee/hexo-workbox-build?branch=main)
+[![CI](https://github.com/uiolee/hexo-workbox-build/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/uiolee/hexo-workbox-build/actions/workflows/ci.yml)
+[![Libraries.io dependency status for GitHub repo](https://img.shields.io/librariesio/github/uiolee/hexo-workbox-build?logo=librariesdotio)](https://libraries.io/github/uiolee/hexo-workbox-build#dependencies)
 
 A hexo plugin to run workbox build.
+
+## Install
+
+[![NPM Version](https://img.shields.io/npm/v/hexo-workbox-build?logo=npm)](https://www.npmjs.com/package/hexo-workbox-build)
+[![node-lts](https://img.shields.io/node/v-lts/hexo-workbox-build?logo=nodedotjs)](https://nodejs.org/)
+[![NPM License](https://img.shields.io/npm/l/hexo-workbox-build)](./LICENSE)
+[![NPM Downloads](https://img.shields.io/npm/dm/hexo-workbox-build?logo=npm)](#hexo-workbox-build)
+[![NPM Downloads](https://img.shields.io/npm/dt/hexo-workbox-build?logo=npm)](#hexo-workbox-build)
+[![Libraries.io dependency status for latest release](https://img.shields.io/librariesio/release/npm/hexo-workbox-build?logo=librariesdotio)](https://libraries.io/npm/hexo-workbox-build/tree)
+
+```bash
+pnpm add hexo-workbox-build
+
+# npm i hexo-workbox-build
+```
 
 ## Default Configuration
 
