@@ -3,11 +3,12 @@ import type { DefaultOptions } from "./default_config";
 
 import { renderString } from "nunjucks";
 
-const MF_injector = (options: DefaultOptions) => {
+const MF_injector = (options: DefaultOptions, hexo: Hexo) => {
+  const url_for = hexo.extend.helper.get("url_for").bind(hexo);
   const { MF_copyManifestJsonDest } = options;
   return renderString(
     '<link rel="manifest" href="{{ MF_copyManifestJsonDest }}" />',
-    { MF_copyManifestJsonDest },
+    { MF_copyManifestJsonDest: url_for(MF_copyManifestJsonDest) },
   );
 };
 

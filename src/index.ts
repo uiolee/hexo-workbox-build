@@ -37,6 +37,10 @@ if (
   }
 
   if (options.MF_injector && options.MF_copyManifestJsonDest) {
-    hexo.extend.injector.register("head_end", MF_injector(options), "default");
+    hexo.extend.injector.register(
+      "head_end",
+      MF_injector(options, hexo),
+      "default",
+    );
   }
 }
