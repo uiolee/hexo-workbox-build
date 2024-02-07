@@ -2,7 +2,7 @@
 if ("serviceWorker" in navigator) {
   // Use the window load event to keep the page load performant
   window.addEventListener("load", () => {
-    navigator.serviceWorker.register("{{ swDest }}").then(
+    navigator.serviceWorker.register("{{ WB_swDest }}").then(
       (registration) => {
         console.log("Service worker registration successful: ", registration);
       },
