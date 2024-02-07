@@ -1,0 +1,107 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - "main"
+    paths:
+      - "**.jsx?"
+      - "**.tsx?"
+      - "src/**"
+      - "test/**"
+      - "package.json"
+      - ".github/workflows/ci.yml"
+  pull_request:
+    paths:
+      - "**.jsx?"
+      - "**.tsx?"
+      - "src/**"
+      - "test/**"
+      - "package.json"
+      - ".github/workflows/ci.yml"
+
+env:
+  default_node_version: "lts/*"
+
+jobs:
+  build:
+    name: Build
+    uses: ./.github/workflows/build.yml
+
+  test:
+    name: Test
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+      fail-fast: false
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/download-artifact@v4
+        with:
+          name: artifact
+
+      - uses: pnpm/action-setup@v2
+        name: Install pnpm
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{env.default_node_version}}
+          cache: "pnpm"
+
+      - name: Install Dependencies
+        run: pnpm i
+
+      - name: Test
+        run: pnpm run test
+
+  coverage:
+    name: Coverage
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/download-artifact@v4
+        with:
+          name: artifact
+
+      - uses: pnpm/action-setup@v2
+        name: Install pnpm
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{env.default_node_version}}
+          cache: "pnpm"
+
+      - name: Install Dependencies
+        run: pnpm i
+
+      - name: Coverage
+        run: pnpm run test:lcov
+
+      - name: Coveralls
+        uses: coverallsapp/github-action@v2
+        with:
+          github-token: ${{ secrets.github_token }}
+
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v2
+        name: Install pnpm
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "lts/*"
+          cache: "pnpm"
+
+      - name: Install Dependencies
+        run: pnpm i
+
+      - name: Lint
+        run: |
+          pnpm run lint

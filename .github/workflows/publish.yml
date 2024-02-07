@@ -18,47 +18,25 @@ on:
     tags:
       - "v*.*.*"
 
+env:
+  default_node_version: "lts/*"
+
 jobs:
-  test:
-    name: Test
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      - uses: actions/setup-node@v4
-        with:
-          node-version: "lts/*"
-
-      - uses: pnpm/action-setup@v2
-        name: Install pnpm
-
-      - name: Get pnpm store directory
-        shell: bash
-        run: |
-          echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
-
-      - uses: actions/cache@v4
-        name: Setup pnpm cache
-        with:
-          path: |
-            ${{ env.STORE_PATH }}
-          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-pnpm-store-
-
-      - name: Install Dependencies
-        run: pnpm i
-
-      - name: Test
-        run: pnpm run test
+  build:
+    name: Build
+    uses: ./.github/workflows/build.yml
 
   publish-npm:
-    needs: test
+    needs: build
     runs-on: ubuntu-latest
     permissions:
       id-token: write
     steps:
       - uses: actions/checkout@v4
+
+      - uses: actions/download-artifact@v4
+        with:
+          name: artifact
 
       - uses: actions/setup-node@v4
         with:
@@ -70,7 +48,7 @@ jobs:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
 
   publish-ghp:
-    needs: test
+    needs: build
     runs-on: ubuntu-latest
     env:
       SCOPE: "@${{github.repository_owner}}"
@@ -80,6 +58,10 @@ jobs:
       id-token: write
     steps:
       - uses: actions/checkout@v4
+
+      - uses: actions/download-artifact@v4
+        with:
+          name: artifact
 
       - uses: actions/setup-node@v4
         with:
@@ -97,3 +79,18 @@ jobs:
       - run: npm publish --access public --registry=https://npm.pkg.github.com
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+
+  release:
+    name: Release
+    needs: publish-npm
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      discussions: write
+    steps:
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        if: startsWith(github.ref, 'refs/tags/')
+        with:
+          generate_release_notes: true
+          discussion_category_name: "Announcements"
