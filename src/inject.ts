@@ -14,11 +14,13 @@ const MF_injector = (options: DefaultOptions, hexo: Hexo) => {
 
 const REG_injector = (options: DefaultOptions, hexo: Hexo) => {
   const url_for = hexo.extend.helper.get("url_for").bind(hexo);
-  const { REG_registerScriptDest } = options;
-  return renderString(
-    `<script defer src="{{ REG_registerScriptDest }}"></script>`,
-    { REG_registerScriptDest: url_for(REG_registerScriptDest) },
-  );
+  const { REG_registerScriptDest, REG_injectorNjkString } = options;
+  const njkString = REG_injectorNjkString
+    ? REG_injectorNjkString
+    : `<script defer src="{{ REG_registerScriptDest }}"></script>`;
+  return renderString(njkString, {
+    REG_registerScriptDest: url_for(REG_registerScriptDest),
+  });
 };
 
 export { MF_injector, REG_injector };
