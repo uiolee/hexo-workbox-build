@@ -1,7 +1,0 @@
-{
-  "clearMocks": false,
-  "collectCoverage": false,
-  "coverageDirectory": "coverage",
-  "coverageProvider": "v8",
-  "coverageReporters": ["lcovonly", "text"]
-}
