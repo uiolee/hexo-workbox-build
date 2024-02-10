@@ -19,7 +19,7 @@ const defaultOptions = {
 
   MF_injector: false,
   MF_injectorNjkString:
-    '<link rel="manifest" href="{{ MF_cpoyManifestJsonDest }}" />',
+    '<link rel="manifest" href="{{ MF_copyManifestJsonDest }}" />',
 };
 const defaultConfigs = {
   hexo_workbox_build: defaultOptions,

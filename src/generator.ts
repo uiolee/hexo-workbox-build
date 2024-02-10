@@ -26,7 +26,7 @@ async function registerScriptGen(this: Hexo, locals: object): Promise<unknown> {
     return {
       path: REG_registerScriptDest,
       data: renderString(njkString, {
-        swDest: url_for(WB_swDest),
+        WB_swDest: url_for(WB_swDest),
       }),
     };
   });
