@@ -1,6 +1,6 @@
 {
   "name": "hexo-workbox-build",
-  "version": "2.0.0-0",
+  "version": "2.0.0",
   "description": "A hexo plugin to run workbox build. And provide convenient features of PWA and service worker.",
   "keywords": [
     "hexo",
